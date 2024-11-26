@@ -1,0 +1,374 @@
+body {
+  margin: 0;
+  font-family: "Arial", sans-serif; /* Standardized font family */
+  font-size: 16px; /* Standardized base font size */
+  line-height: 1.5; /* Improved line height for readability */
+  color: #333; /* Text color */
+}
+
+.header,
+.footer {
+  font-family: "Arial", sans-serif;
+}
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  z-index: 10;
+  font-size: 18px; /* Slightly larger font size for header */
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  z-index: 10;
+  font-size: 14px; /* Slightly smaller font size for footer */
+}
+
+.sidebar {
+  position: absolute;
+  top: 50px;
+  right: 10px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 20;
+  font-size: 14px; /* Font size for sidebar text */
+}
+
+/* Navbar container styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  color: white;
+  height: 60px; /* Adjust height for better centering */
+  display: flex;
+  align-items: center; /* Vertically center items */
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 10;
+}
+
+/* Button inside the Navbar */
+.navbar-button {
+  background-color: #555;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  display: flex; /* Flexbox on button to vertically align text */
+  align-items: center; /* Center content vertically within button */
+  justify-content: center; /* Center content horizontally within button */
+  margin: 0;
+}
+
+.navbar-button:hover {
+  background-color: #3a3a3a;
+}
+
+/* Navbar title styles */
+.navbar-title {
+  font-size: 18px;
+  margin: 0;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition for background color and scale effect */
+}
+
+button:hover {
+  transform: scale(1.005); /* Slightly enlarge the button */
+  background-color: #3f9442;
+}
+
+.map-container {
+  position: relative;
+  height: 100vh;
+}
+
+.main-container {
+  position: relative;
+  height: 100vh;
+}
+
+.inner-container {
+  display: flex;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  height: calc(100vh - 80px);
+  font-size: 16px; /* Font size for inner container */
+}
+
+.left-side {
+  flex: 6;
+  padding-right: 20px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px; /* Standardized font size for error messages */
+}
+
+.info-container {
+  display: flex;
+  align-items: start;
+}
+
+.info-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+}
+
+.map-container {
+  flex: 4;
+}
+
+.records-container {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 80%;
+  padding: 20px;
+  font-size: 16px; /* Standard font size for records container */
+}
+
+.records-container h1 {
+  align-self: flex-start;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  font-size: 24px; /* Larger font size for the main heading */
+}
+
+.table-container h2 {
+  align-self: flex-start;
+  margin-bottom: 20px;
+  padding-left: 20px;
+  font-size: 20px; /* Slightly smaller font size for table heading */
+}
+
+.table-container table {
+  align-self: flex-start;
+  margin-bottom: 20px;
+  padding-left: 20px;
+}
+
+.driver-select-container {
+  margin-bottom: 20px;
+  align-self: flex-start;
+  padding-left: 20px;
+}
+
+select {
+  padding: 5px;
+  font-size: 16px; /* Standardized font size for select options */
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px; /* Standard font size for table */
+}
+
+table thead tr {
+  background-color: #333;
+  color: white;
+  text-align: left;
+  font-size: 16px; /* Standard font size for table header */
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: #fff;
+}
+
+table td {
+  padding: 8px;
+}
+
+/* Container for the address form */
+.address-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Space between form elements */
+}
+
+/* Container that holds the input fields */
+.input-container {
+  display: flex;
+  width: 100%;
+  gap: 20px; /* Space between the origin and destination sections */
+}
+
+/* Section for each input field (origin or destination) */
+.input-section {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Ensure each section takes equal space */
+}
+
+/* Label for each input field */
+.input-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 5px; /* Space between label and input */
+}
+
+/* Input fields */
+.input-field {
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  width: 95%; /* Make sure the input fields take full width of their container */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* This centers the button horizontally */
+  width: 100%;
+  margin-top: 20px; /* Space between the button and the form elements */
+}
+
+/* Existing button styles */
+.search-button {
+  font-size: 24px;
+  width: 100%;
+}
+
+.confirm-button {
+  font-size: 16;
+  width: 30%;
+}
+
+.search-button:active {
+  background-color: #3e8e41;
+}
+
+/* Container for the whole page */
+.main-container {
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Initially stacked vertically */
+  height: 100vh;
+  background-color: white;
+}
+
+/* Inner container that holds both left and right sections */
+.inner-container {
+  display: flex;
+  flex-direction: row; /* Default layout (horizontal) */
+  position: absolute;
+  top: 80px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: auto;
+  height: calc(100vh - 80px); /* Ensures it fits in the remaining height */
+  font-size: 16px;
+}
+
+/* Left side of the layout */
+.left-side {
+  flex: 6;
+  padding-right: 20px;
+}
+
+/* Map container */
+.map-container {
+  flex: 4;
+  height: 100%; /* Make sure map takes available height */
+  min-height: 300px; /* Minimum height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Handle the layout switch for smaller screens using media queries */
+@media (max-width: 1024px) {
+  /* For tablet and smaller screens */
+  .inner-container {
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .map-container {
+    height: 50vh; /* Adjust map height on smaller screens */
+  }
+}
+
+@media (max-width: 768px) {
+  /* For mobile devices */
+  .inner-container {
+    flex-direction: column; /* Stack items vertically */
+  }
+
+  .map-container {
+    height: 50vh; /* Reduce the height further on mobile */
+  }
+}
+
+/* Make sure the map takes up full width on small screens */
+.map-container {
+  width: 100%; /* Ensure map stretches to fill the container */
+}
+
+/* Additional styles for better responsiveness */
+.left-side,
+.map-container {
+  margin-bottom: 20px;
+}

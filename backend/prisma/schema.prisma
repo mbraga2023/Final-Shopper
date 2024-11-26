@@ -1,0 +1,46 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-3.0.x"]  
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")  
+}
+
+model Driver {
+  driver_id  Int    @id @default(autoincrement()) 
+  name       String
+  description String
+  car        String
+  rating     String
+  rate       Int
+  minKm      Int
+
+  // One-to-many relation with RideConfirmation
+  rideConfirmations RideConfirmation[] 
+}
+
+model RideConfirmation {
+  id          Int      @id @default(autoincrement())  
+  customer_id String
+  origin      Json
+  destination Json
+  distance    Float
+  duration    Int
+  value       Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  // Add the driver relation field
+  driver_id   Int
+  driver      Driver   @relation(fields: [driver_id], references: [driver_id]) 
+
+}
+
+model User {
+  id        Int      @id @default(autoincrement())  
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}

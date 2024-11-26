@@ -1,0 +1,33 @@
+{
+  "name": "backts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch app.ts",
+    "build": "tsup src",
+    "test": "vitest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@prisma/client": "^5.22.0",
+    "@types/express": "^5.0.0",
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "prisma": "^5.22.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/mongoose": "^5.11.96",
+    "@types/node": "^22.9.1",
+    "dotenv": "^16.4.5",
+    "tsup": "^8.3.5",
+    "vitest": "^2.1.5",
+    "zod": "^3.23.8"
+  }
+}

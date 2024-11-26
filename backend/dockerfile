@@ -1,0 +1,20 @@
+# Use Node.js base image
+FROM node:18
+
+# Set working directory inside the container
+WORKDIR /usr/src/app
+
+# Copy package.json and package-lock.json first for installing dependencies
+COPY package*.json ./
+
+# Install backend dependencies
+RUN npm install
+
+# Copy the entire backend project into the container
+COPY . .
+
+# Expose port 8080 for the backend
+EXPOSE 8080
+
+# Run Prisma Client generation and migrations, then start the backend app
+CMD ["bash", "-c", "npx prisma generate && npx prisma migrate deploy && npm run dev"]
