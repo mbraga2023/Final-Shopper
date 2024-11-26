@@ -151,7 +151,7 @@ export const estimateRoute = async (
         longitude: destinationCoords.lng,
       },
       distance: route.distanceMeters || 0,
-      duration: route.duration ? route.duration : "N/A", // Handle duration properly
+      duration: route.duration ? route.duration : "N/A",
       options,
       routeResponse: route,
     };

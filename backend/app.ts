@@ -71,3 +71,8 @@ const port: number = process.env.PORT ? parseInt(process.env.PORT) : 8080;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
+
+app.get('/api/config', (req, res) => {
+  const googleApiKey = process.env.GOOGLE_API_KEY;
+  res.json({ googleApiKey });
+});

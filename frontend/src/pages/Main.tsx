@@ -12,6 +12,8 @@ import "../App.css";
 const libraries: Libraries = ["places"];
 
 const Main: React.FC = () => {
+  const [googleMapsApiKey, setGoogleMapsApiKey] = useState<string>(""); // Store the API key here
+
   const [origin, setOrigin] = useState<string>("");
   const [destination, setDestination] = useState<string>("");
   const [distance, setDistance] = useState<string>("");
@@ -119,13 +121,22 @@ const Main: React.FC = () => {
     fetchDrivers();
   }, []);
 
-  const googleMapsApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+  useEffect(() => {
+    const fetchGoogleApiKey = async () => {
+      try {
+        const response = await api.get("/api/config");
+        setGoogleMapsApiKey(response.data.googleApiKey);
+      } catch (error) {
+        console.error("Error fetching Google API key:", error);
+        setError("Failed to fetch Google API key.");
+      }
+    };
+
+    fetchGoogleApiKey();
+  }, []);
 
   if (!googleMapsApiKey) {
-    console.error(
-      "Google API key is missing. Please provide it in the .env file."
-    );
-    return <div>Error: Missing Google API key.</div>;
+    return <div>Loading Google Maps API Key...</div>;
   }
 
   const handleSearchClick = async (): Promise<void> => {
