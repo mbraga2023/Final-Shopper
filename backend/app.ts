@@ -15,6 +15,9 @@ import corsMiddleware from './src/config/cors';
 import { seedData } from "./src/config/seedData";
 import { PrismaClient } from "@prisma/client";
 
+// Import the API key route
+import apiKeyRoute from './src/routes/apiKey';
+
 // Initialize express app
 const app: Express = express();
 
@@ -65,14 +68,10 @@ app.use(userRoutes);
 app.use(driverRoutes);
 app.use(confirmRideRoute);
 app.use(historyRides);
+app.use('/api', apiKeyRoute);
 
 // Start the server
 const port: number = process.env.PORT ? parseInt(process.env.PORT) : 8080;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
-});
-
-app.get('/api/config', (req, res) => {
-  const googleApiKey = process.env.GOOGLE_API_KEY;
-  res.json({ googleApiKey });
 });

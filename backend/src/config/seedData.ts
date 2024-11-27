@@ -19,7 +19,6 @@ export async function seedUsers() {
       await prisma.user.create({
         data: user,
       });
-      console.log(`User ${user.name} added successfully.`);
     }
     console.log("All users added successfully.");
   } catch (error) {
